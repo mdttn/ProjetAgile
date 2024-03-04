@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetAgile
+namespace ProjetAgile.bus
 {
-    internal class Program
+    internal class Montant
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }

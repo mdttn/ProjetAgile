@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bus\Game.cs" />
     <Compile Include="bus\Player.cs" />
     <Compile Include="user\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

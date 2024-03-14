@@ -54,45 +54,45 @@ namespace ProjetAgile.bus
             this.money = money;
         }
 
-        //public void SetName(string firstName)
-        //{
-        //    this.firstName = firstName;
-        //}
+        public void SetName(string firstName)
+        {
+            this.firstName = firstName;
+        }
 
-        //public void SetLastName(string lastName)
-        //{
-        //    this.lastName = lastName;
-        //}
+        public void SetLastName(string lastName)
+        {
+            this.lastName = lastName;
+        }
 
-        //public void SetAge(int age)
-        //{
-        //    this.age = age;
-        //}
+        public void SetAge(int age)
+        {
+            this.age = age;
+        }
 
-        //public void SetMoney(int money)
-        //{
-        //    this.money = money;
-        //}
+        public void SetMoney(int money)
+        {
+            this.money = money;
+        }
 
-        //public string GetFirstName() 
-        //{ 
-        //    return this.firstName; 
-        //}
+        public string GetFirstName()
+        {
+            return this.firstName;
+        }
 
-        //public string GetLastName()
-        //{
-        //    return this.lastName;
-        //}
+        public string GetLastName()
+        {
+            return this.lastName;
+        }
 
-        //public int GetAge()
-        //{
-        //    return this.age;
-        //}
+        public int GetAge()
+        {
+            return this.age;
+        }
 
-        //public int GetMoney()
-        //{
-        //    return this.money;
-        //}
+        public int GetMoney()
+        {
+            return this.money;
+        }
 
         public string GetState()
         {

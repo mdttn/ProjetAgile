@@ -66,6 +66,7 @@
     <Compile Include="bus\Player.cs" />
     <Compile Include="user\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="user\ProgramQuiz%24.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

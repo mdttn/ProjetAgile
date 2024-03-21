@@ -31,7 +31,6 @@ namespace ProjetAgile.user
 
                 // start menu
                 Console.WriteLine("MENU");
-                Console.WriteLine("[0] Play");
                 Console.WriteLine("[1] Inscription");
                 Console.WriteLine("[2] Leaderboard");
                 Console.WriteLine("[3] Quitter");

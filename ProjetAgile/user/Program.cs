@@ -133,25 +133,25 @@ namespace ProjetAgile.user
             
 
             Game2[1].Question = "Parmis ces 3 pays, lequel a gagné la coupe du monde au soccer en 2022 ?";
-            Game2[1].Options = "Entrez 1 pour France\n" +
-                "Entrez 2 pour Maroc\n" +
-                "Entrez 3 pour Argentine";
-            Game2[1].Answer = '3';
+            Game2[1].Options = " (a) France\n" +
+                " (b) Maroc\n" +
+                " (c) Argentine";
+            Game2[1].Answer = 'c';
 
             Game2[2].Question = "De quelle catégorie de poid en boxe Mohammed Ali faisait-il parti?";
-            Game2[2].Options = "Entrez 1 mi-lourd\n" +
-                "Entrez 2 pour super-lourd\n" +
-                "Entrez 3 pour lourd";
-            Game2[2].Answer = '3';
+            Game2[2].Options = " (a) mi-lourd\n" +
+                " (b) super-lourd\n" +
+                " (c) lourd";
+            Game2[2].Answer = 'c';
 
             Game2[3].Question = "En 2021, durant le Grand Chelem, au tennis, quelle joueuse a remporté l'Open d'Australie?";
-            Game2[3].Options = "Entrez 1 pour Serena Williams\n" +
-                "Entrez 2 pour Bianca Andreescu\n" +
-                "Entrez 3 pour Naomi Osaka";
-           Game2[3].Answer = '3';
+            Game2[3].Options = "(a) Serena Williams\n" +
+                " (b) Bianca Andreescu\n" +
+                " (c) pour Naomi Osaka";
+           Game2[3].Answer = 'c';
 
             Game2[4].Question = "Vrai ou Faux: Le joueur de soccer Ronaldinho Gaúcho est d'origine espagnole. ?";
-            Game2[4].Options = "Entrez 1 Vrai\n" +
+            Game2[4].Options = "Entrez 1 pour Vrai\n" +
                 "Entrez 2 pour Faux\n";
             Game2[4].Answer = '2';
 
@@ -161,28 +161,28 @@ namespace ProjetAgile.user
             Game2[5].Answer = '1';
 
             Game2[6].Question = "Quelle équipe de la NFL à recruté Tom Brady?";
-            Game2[6].Options = "Entrez 1 pour Les Patriotes de la Nouvelle-Anglettre\n" +
-                "Entrez 2 pour Les Wolverines du Michigan\n " +
-                "Entrez 3 pour Les Buccaneers de Tempa Bay";
-            Game2[6].Answer = '1';
+            Game2[6].Options = "(a) Les Patriotes de la Nouvelle-Anglettre\n" +
+                "(b) pour Les Wolverines du Michigan\n " +
+                "(c) Entrez 3 pour Les Buccaneers de Tempa Bay";
+            Game2[6].Answer = 'a';
 
             Game2[7].Question = "Quel joueur porte le surnom de 'GOAT' dans la NBA?";
-            Game2[7].Options = "Entrez 1 pour Lamelo Ball\n" +
-                "Entrez 2 pour Klay Thompson\n" +
-                "Entrez 3 pour Michael Jordan";
-            Game2[7].Answer = '3';
+            Game2[7].Options = "(a) Lamelo Ball\n" +
+                "(b) Klay Thompson\n" +
+                "(c) Michael Jordan";
+            Game2[7].Answer = 'c';
 
             Game2[8].Question = "Quel athlète est considéré comme le plus grand sprinteur de tous les temps?";
-            Game2[8].Options = "Entrez 1 pour Yohann Blake\n" +
-                "Entrez 2 pour Usain Bolt\n" +
-                "Entrez 3 pour Noah Lyles";
-            Game2[8].Answer = '2';
+            Game2[8].Options = "(a) Yohann Blake\n" +
+                "(b) Usain Bolt\n" +
+                "(c) pour Noah Lyles";
+            Game2[8].Answer = 'b';
 
             Game2[9].Question = "Combien de championnat Michael Jordan a-t-il dans sa carrière dans la NBA?";
-            Game2[9].Options = "Entrez 1 pour 6 championnats\n" +
-                "Entrez 2 pour 7 championnats\n" +
-                "Entrez 3 pour pour aucune de ces réponses";
-            Game2[9].Answer = '1';
+            Game2[9].Options = "(a) 6 championnats\n" +
+                "(b) 7 championnats\n" +
+                "(c) aucune de ces réponses";
+            Game2[9].Answer = 'a';
         }
     }
 }

@@ -1,20 +1,21 @@
 ﻿using ProjetAgile.bus;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace ProjetAgile.user
 {
     internal class Program
     {
-        static Game[] Game2 = new Game[10];
+        static Game[] game1 = new Game[10];
+        static Game[] game2 = new Game[10];
+        static Game[] game3 = new Game[10];
+
         static void Main(string[] args)
         {
             List<Player> playerList = new List<Player>();
             Player player;
             int i = 0;
-            Game[] game1 = new Game[10];
-            Game[] game2 = new Game[10];
-            Game[] game3 = new Game[10];
             int option;
 
             do
@@ -34,7 +35,7 @@ namespace ProjetAgile.user
                 Console.WriteLine("[1] Inscription");
                 Console.WriteLine("[2] Leaderboard");
                 Console.WriteLine("[3] Quitter");
-                Console.Write("Option: ");
+                Console.Write("=> ");
                 try
                 {
                     option = Convert.ToInt32(Console.ReadLine());                    
@@ -47,12 +48,9 @@ namespace ProjetAgile.user
 
                 switch (option)
                 {
-                    case 0:
-
-                        break;
-
-
                     case 1:
+                        char start = ' ';
+                        
                         do
                         {
                             Console.Write("Votre prénom: ");
@@ -85,6 +83,26 @@ namespace ProjetAgile.user
                                 playerList.Add(player);
                                 Console.WriteLine($"\nJoueur {i}: {player.GetState()}");
                                 Console.ReadLine();
+                                Console.Clear();
+
+                                Console.Write("Voulez-vous commencer maintenant? (y/n) ");
+                                do
+                                {
+                                    switch (start)
+                                    {
+                                        case 'y':
+                                            Game1();
+                                            break;
+                                        case 'n':
+                                            playerList.Remove(player);
+                                            i--;
+                                            break;
+                                        default:
+                                            // reset
+                                            break;
+                                    }
+                                }
+                                while (start != 'n');
                             }
                         }
                         catch (Exception)
@@ -120,14 +138,20 @@ namespace ProjetAgile.user
             Console.ReadKey();
         }
 
-        static void Jeux2()
+        static void Game1()
         {
-            Game2[0].Question = "Vrai ou Faux: Jerry West est le joueur présent sur le logo de la NBA ";
-            Game2[0].Options = "Entrez 1 pour Vrai\n" + 
+
+        }
+
+        static void Game2()
+        {
+            game2[0].Question = "Vrai ou Faux: Jerry West est le joueur présent sur le logo de la NBA ";
+            game2[0].Options = "Entrez 1 pour Vrai\n" + 
                 "Entrez 2 pour Faux\n";
-            Game2[0].Answer = '1';
+            game2[0].Answer = '1';
             
 
+<<<<<<< Updated upstream
             Game2[1].Question = "Parmis ces 3 pays, lequel a gagné la coupe du monde au soccer en 2022 ?";
             Game2[1].Options = " (a) France\n" +
                 " (b) Maroc\n" +
@@ -148,14 +172,37 @@ namespace ProjetAgile.user
 
             Game2[4].Question = "Vrai ou Faux: Le joueur de soccer Ronaldinho Gaúcho est d'origine espagnole. ?";
             Game2[4].Options = "Entrez 1 pour Vrai\n" +
+=======
+            game2[1].Question = "Parmis ces 3 pays, lequel a gagné la coupe du monde au soccer en 2022 ?";
+            game2[1].Options = "Entrez 1 pour France\n" +
+                "Entrez 2 pour Maroc\n" +
+                "Entrez 3 pour Argentine";
+            game2[1].Answer = '3';
+
+            game2[2].Question = "De quelle catégorie de poid en boxe Mohammed Ali faisait-il parti?";
+            game2[2].Options = "Entrez 1 mi-lourd\n" +
+                "Entrez 2 pour super-lourd\n" +
+                "Entrez 3 pour lourd";
+            game2[2].Answer = '3';
+
+            game2[3].Question = "En 2021, durant le Grand Chelem, au tennis, quelle joueuse a remporté l'Open d'Australie?";
+            game2[3].Options = "Entrez 1 pour Serena Williams\n" +
+                "Entrez 2 pour Bianca Andreescu\n" +
+                "Entrez 3 pour Naomi Osaka";
+           game2[3].Answer = '3';
+
+            game2[4].Question = "Vrai ou Faux: Le joueur de soccer Ronaldinho Gaúcho est d'origine espagnole. ?";
+            game2[4].Options = "Entrez 1 Vrai\n" +
+>>>>>>> Stashed changes
                 "Entrez 2 pour Faux\n";
-            Game2[4].Answer = '2';
+            game2[4].Answer = '2';
 
-            Game2[5].Question = "Vrai ou Faux:Les équipes à s'affonter durant les finales de la NBA en 2019 sont Toronto Raptors/Golden States Warriors";
-            Game2[5].Options = "Entrez 1 pour Vrai\n" +
+            game2[5].Question = "Vrai ou Faux:Les équipes à s'affonter durant les finales de la NBA en 2019 sont Toronto Raptors/Golden States Warriors";
+            game2[5].Options = "Entrez 1 pour Vrai\n" +
             "Entrez 2 pour Faux\n";
-            Game2[5].Answer = '1';
+            game2[5].Answer = '1';
 
+<<<<<<< Updated upstream
             Game2[6].Question = "Quelle équipe de la NFL à recruté Tom Brady?";
             Game2[6].Options = "(a) Les Patriotes de la Nouvelle-Anglettre\n" +
                 "(b) pour Les Wolverines du Michigan\n " +
@@ -179,6 +226,31 @@ namespace ProjetAgile.user
                 "(b) 7 championnats\n" +
                 "(c) aucune de ces réponses";
             Game2[9].Answer = 'a';
+=======
+            game2[6].Question = "Quelle équipe de la NFL à recruté Tom Brady?";
+            game2[6].Options = "Entrez 1 pour Les Patriotes de la Nouvelle-Anglettre\n" +
+                "Entrez 2 pour Les Wolverines du Michigan\n " +
+                "Entrez 3 pour Les Buccaneers de Tempa Bay";
+            game2[6].Answer = '1';
+
+            game2[7].Question = "Quel joueur porte le surnom de 'GOAT' dans la NBA?";
+            game2[7].Options = "Entrez 1 pour Lamelo Ball\n" +
+                "Entrez 2 pour Klay Thompson\n" +
+                "Entrez 3 pour Michael Jordan";
+            game2[7].Answer = '3';
+
+            game2[8].Question = "Quel athlète est considéré comme le plus grand sprinteur de tous les temps?";
+            game2[8].Options = "Entrez 1 pour Yohann Blake\n" +
+                "Entrez 2 pour Usain Bolt\n" +
+                "Entrez 3 pour Noah Lyles";
+            game2[8].Answer = '2';
+
+            game2[9].Question = "Combien de championnat Michael Jordan a-t-il dans sa carrière dans la NBA?";
+            game2[9].Options = "Entrez 1 pour 6 championnats\n" +
+                "Entrez 2 pour 7 championnats\n" +
+                "Entrez 3 pour pour aucune de ces réponses";
+            game2[9].Answer = '1';
+>>>>>>> Stashed changes
         }
     }
 }

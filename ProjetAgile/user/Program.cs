@@ -49,11 +49,7 @@ namespace ProjetAgile.user
                 switch (option)
                 {
                     case 0:
-                        {
-                            
-                            
 
-                        }
                         break;
 
 

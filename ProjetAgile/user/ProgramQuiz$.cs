@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ProjetQuiz_
 {
     internal class Program
-    {
+    {/*
         // Creation de tableaux
         static Quiz1[] arrQuiz1 = new Quiz1[10];
         static Quiz2[] arrQuiz2 = new Quiz2[10];
@@ -206,5 +206,6 @@ namespace ProjetQuiz_
         { }
         static void Therese3() 
         { }
-                    }
+                    }*/
     }
+}

@@ -141,14 +141,14 @@ namespace ProjetAgile.user
 
         static void Game1()
         {
-            Game2[0].Question = "Vrai ou Faux: Jerry West est le joueur présent sur le logo de la NBA ";
-            Game2[0].Options = "Entrez 1 pour Vrai\n" + 
+            game2[0].Question = "Vrai ou Faux: Jerry West est le joueur présent sur le logo de la NBA ";
+            game2[0].Options = "Entrez 1 pour Vrai\n" + 
                 "Entrez 2 pour Faux\n";
             game2[0].Answer = '1';
             
 
-            Game2[1].Question = "Parmis ces 3 pays, lequel a gagné la coupe du monde au soccer en 2022 ?";
-            Game2[1].Options = " (a) France\n" +
+            game2[1].Question = "Parmis ces 3 pays, lequel a gagné la coupe du monde au soccer en 2022 ?";
+            game2[1].Options = " (a) France\n" +
                 " (b) Maroc\n" +
                 " (c) Argentine";
             game2[1].Answer = 'c';
@@ -165,8 +165,8 @@ namespace ProjetAgile.user
                 " (c) pour Naomi Osaka";
             game2[3].Answer = 'c';
 
-            Game2[4].Question = "Vrai ou Faux: Le joueur de soccer Ronaldinho Gaúcho est d'origine espagnole. ?";
-            Game2[4].Options = "Entrez 1 pour Vrai\n" +
+            game2[4].Question = "Vrai ou Faux: Le joueur de soccer Ronaldinho Gaúcho est d'origine espagnole. ?";
+            game2[4].Options = "Entrez 1 pour Vrai\n" +
                 "Entrez 2 pour Faux\n";
             game2[4].Answer = '2';
 
@@ -175,8 +175,8 @@ namespace ProjetAgile.user
             "Entrez 2 pour Faux\n";
             game2[5].Answer = '1';
 
-            Game2[6].Question = "Quelle équipe de la NFL à recruté Tom Brady?";
-            Game2[6].Options = "(a) Les Patriotes de la Nouvelle-Anglettre\n" +
+            game2[6].Question = "Quelle équipe de la NFL à recruté Tom Brady?";
+            game2[6].Options = "(a) Les Patriotes de la Nouvelle-Anglettre\n" +
                 "(b) pour Les Wolverines du Michigan\n " +
                 "(c) Entrez 3 pour Les Buccaneers de Tempa Bay";
             game2[6].Answer = 'a';
@@ -197,7 +197,7 @@ namespace ProjetAgile.user
             game2[9].Options = "(a) 6 championnats\n" +
                 "(b) 7 championnats\n" +
                 "(c) aucune de ces réponses";
-            Game2[9].Answer = 'a';
+            game2[9].Answer = 'a';
         }
     }
 }

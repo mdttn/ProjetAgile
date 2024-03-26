@@ -251,7 +251,7 @@ d) Le 4e dimanche de juin
 
         static void Game2()
         {
-            game2[0].Question = "Vrai ou Faux: Jerry West est le joueur présent sur le logo de la NBA ";
+            game2[0].Question = "Vrai ou Faux:  ";
             game2[0].Options = "Entrez 1 pour Vrai\n" + 
                 "Entrez 2 pour Faux\n";
             game2[0].Answer = '1';
@@ -265,62 +265,62 @@ d) Le 4e dimanche de juin
                 " (d) Aucune de ces réponses ";
             game2[1].Answer = 'a';
 
-            game2[2].Question = "De quelle catégorie de poid en boxe Mohammed Ali faisait-il parti?";
+            game2[2].Question = " Quel artiste est considéré comme le roi de la POP?";
             game2[2].Options = 
-                " (a) \n" +
-                " (b) \n" +
-                " (c) \n" +
-                " (d) ";
+                " (a) The Weeknd\n" +
+                " (b) The Beatles\n" +
+                " (c) Prince \n" +
+                " (d) Michael Jackson ";
             game2[2].Answer = 'c';
 
-            game2[3].Question = "Vrai ou Faux :";
+            game2[3].Question = "Vrai ou Faux : Jerry West est le joueur présent sur le logo de la NBA";
             game2[3].Options = 
                 " Entrez 1 pour vrai\n" +
                 " Entrez 2 pour faux";
-            game2[3].Answer = 'c';
+            game2[3].Answer = '1';
 
             game2[4].Question = "Quel est la formule brut du glucose (sucre)?";
             game2[4].Options = 
                 " (a) ( C6/H12/O6 )\n" +
                 " (b) ( C2/H6/O )\n" +
-                " (c) ( N/O3 )" +
-                " (d) ";
+                " (c) ( N/O3 )\n" +
+                " (d) ( C2/H4/O2 )";
             game2[4].Answer = 'a';
 
-            game2[5].Question = "Vrai ou Faux :";
+            game2[5].Question = "Vrai ou Faux : Le crâne est l'os le plus résistant du corps humain";
             game2[5].Options = "Entrez 1 pour Vrai\n" +
             "Entrez 2 pour Faux\n";
-            game2[5].Answer = '1';
+            game2[5].Answer = '2';
 
             game2[6].Question = "Quel pays ne fait pas parti de l'OTAN ?";
             game2[6].Options = 
                 " (a) Slovaquie \n" +
                 " (b) Slovénie\n " +
                 " (c) Vatican" +
-                " (d) "; 
+                " (d) Estonie"; 
             game2[6].Answer = 'c';
 
-            game2[7].Question = " ?";
+            game2[7].Question = "Quelle ville est considérée comme sainte pour les trois principales religions abrahamiques ?";
             game2[7].Options = 
-                " (a)\n" +
-                " (b)\n" +
-                " (c)\n " +
-                " (d)\n";
-            game2[7].Answer = 'c';
+                " (a) Nador\n" +
+                " (b) Jérusalem\n" +
+                " (c) Constantine\n " +
+                " (d) Tibériade\n";
+            game2[7].Answer = 'b';
 
-            game2[8].Question = "Quel athlète est considéré comme le plus grand sprinteur de tous les temps?";
+            game2[8].Question = "Dans la mythologie grec, quel dieu/déesse est considéré comme le dieu de la guerre ?";
             game2[8].Options = 
-                " (a) Yohann Blake\n" +
-                " (b) Usain Bolt\n" +
-                " (c) pour Noah Lyles\n" +
-                " (d) ";
+                " (a) Hades\n" +
+                " (b) Ares\n" +
+                " (c) Thanatos\n" +
+                " (d) Artémis";
             game2[8].Answer = 'b';
 
             game2[9].Question = "Combien de championnat Michael Jordan a-t-il dans sa carrière dans la NBA?";
             game2[9].Options = 
                 " (a) 6 championnats\n" +
                 " (b) 7 championnats\n" +
-                " (c)\n"+
+                " (c) 8 championnats\n"+
                 " (d) aucune de ces réponses";
             game2[9].Answer = 'a';
         }

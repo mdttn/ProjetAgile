@@ -92,7 +92,7 @@ namespace ProjetAgile.user
                                     switch (start)
                                     {
                                         case 'y':
-                                            Game1();
+                                            Game2();
                                             break;
                                         case 'n':
                                             playerList.Remove(player);
@@ -139,7 +139,7 @@ namespace ProjetAgile.user
             Console.ReadKey();
         }
 
-        static void Game1()
+        static void Game2()
         {
             game2[0].Question = "Vrai ou Faux: Jerry West est le joueur présent sur le logo de la NBA ";
             game2[0].Options = "Entrez 1 pour Vrai\n" + 

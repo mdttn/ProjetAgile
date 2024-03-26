@@ -141,62 +141,77 @@ namespace ProjetAgile.user
 
         static void Game1()
         {
-            game2[0].Question = "Vrai ou Faux: Jerry West est le joueur présent sur le logo de la NBA ";
+            game2[0].Question = "Vrai ou Faux: Le tyrannosaure est l'emblème de Jurassic Park ";
             game2[0].Options = "Entrez 1 pour Vrai\n" + 
                 "Entrez 2 pour Faux\n";
             game2[0].Answer = '1';
             
 
-            game2[1].Question = "Parmis ces 3 pays, lequel a gagné la coupe du monde au soccer en 2022 ?";
-            game2[1].Options = " (a) France\n" +
-                " (b) Maroc\n" +
-                " (c) Argentine";
-            game2[1].Answer = 'c';
+            game2[1].Question = "Combien d'étoiles sont présents sur le drapeau des États-Unis ?";
+            game2[1].Options = 
+                " (a) 50 \n" +
+                " (b) 51 \n" +
+                " (c) 52\n" +
+                " (d) Aucune de ces réponses ";
+            game2[1].Answer = 'a';
 
             game2[2].Question = "De quelle catégorie de poid en boxe Mohammed Ali faisait-il parti?";
-            game2[2].Options = " (a) mi-lourd\n" +
-                " (b) super-lourd\n" +
-                " (c) lourd";
+            game2[2].Options = 
+                " (a) \n" +
+                " (b) \n" +
+                " (c) \n" +
+                " (d) ";
             game2[2].Answer = 'c';
 
-            game2[3].Question = "En 2021, durant le Grand Chelem, au tennis, quelle joueuse a remporté l'Open d'Australie?";
-            game2[3].Options = "(a) Serena Williams\n" +
-                " (b) Bianca Andreescu\n" +
-                " (c) pour Naomi Osaka";
+            game2[3].Question = "Vrai ou Faux :";
+            game2[3].Options = 
+                " Entrez 1 pour vrai\n" +
+                " Entrez 2 pour faux";
             game2[3].Answer = 'c';
 
-            game2[4].Question = "Vrai ou Faux: Le joueur de soccer Ronaldinho Gaúcho est d'origine espagnole. ?";
-            game2[4].Options = "Entrez 1 pour Vrai\n" +
-                "Entrez 2 pour Faux\n";
-            game2[4].Answer = '2';
+            game2[4].Question = "Quel est la formule brut du glucose (sucre)?";
+            game2[4].Options = 
+                " (a) ( C6/H12/O6 )\n" +
+                " (b) ( C2/H6/O )\n" +
+                " (c) ( N/O3 )" +
+                " (d) ";
+            game2[4].Answer = 'a';
 
-            game2[5].Question = "Vrai ou Faux:Les équipes à s'affonter durant les finales de la NBA en 2019 sont Toronto Raptors/Golden States Warriors";
+            game2[5].Question = "Vrai ou Faux :";
             game2[5].Options = "Entrez 1 pour Vrai\n" +
             "Entrez 2 pour Faux\n";
             game2[5].Answer = '1';
 
-            game2[6].Question = "Quelle équipe de la NFL à recruté Tom Brady?";
-            game2[6].Options = "(a) Les Patriotes de la Nouvelle-Anglettre\n" +
-                "(b) pour Les Wolverines du Michigan\n " +
-                "(c) Entrez 3 pour Les Buccaneers de Tempa Bay";
-            game2[6].Answer = 'a';
+            game2[6].Question = "Quel pays ne fait pas parti de l'OTAN ?";
+            game2[6].Options = 
+                " (a) Slovaquie \n" +
+                " (b) Slovénie\n " +
+                " (c) Vatican" +
+                " (d) "; 
+            game2[6].Answer = 'c';
 
-            game2[7].Question = "Quel joueur porte le surnom de 'GOAT' dans la NBA?";
-            game2[7].Options = "(a) Lamelo Ball\n" +
-                "(b) Klay Thompson\n" +
-                "(c) Michael Jordan";
+            game2[7].Question = " ?";
+            game2[7].Options = 
+                " (a)\n" +
+                " (b)\n" +
+                " (c)\n " +
+                " (d)\n";
             game2[7].Answer = 'c';
 
             game2[8].Question = "Quel athlète est considéré comme le plus grand sprinteur de tous les temps?";
-            game2[8].Options = "(a) Yohann Blake\n" +
-                "(b) Usain Bolt\n" +
-                "(c) pour Noah Lyles";
+            game2[8].Options = 
+                " (a) Yohann Blake\n" +
+                " (b) Usain Bolt\n" +
+                " (c) pour Noah Lyles\n" +
+                " (d) ";
             game2[8].Answer = 'b';
 
             game2[9].Question = "Combien de championnat Michael Jordan a-t-il dans sa carrière dans la NBA?";
-            game2[9].Options = "(a) 6 championnats\n" +
-                "(b) 7 championnats\n" +
-                "(c) aucune de ces réponses";
+            game2[9].Options = 
+                " (a) 6 championnats\n" +
+                " (b) 7 championnats\n" +
+                " (c)\n"+
+                " (d) aucune de ces réponses";
             game2[9].Answer = 'a';
         }
     }

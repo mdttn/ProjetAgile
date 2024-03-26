@@ -92,7 +92,7 @@ namespace ProjetAgile.user
                                     switch (start)
                                     {
                                         case 'y':
-                                            Game2();
+                                            Game1();
                                             break;
                                         case 'n':
                                             playerList.Remove(player);
@@ -137,6 +137,45 @@ namespace ProjetAgile.user
             while (option != 3);            
 
             Console.ReadKey();
+        }
+
+        static void Game1()
+        {
+            game1[0].Question = "1. Lequel des matériaux suivants un aimant attire-t-il le plus?";
+            game1[0].Options = @"
+a) Métal
+b) Plastique
+c) Bois
+d) Aluminium
+";
+            game1[0].Answer = 'a';
+
+            game1[1].Question = "2. Quel est l'origine du whisky Scotch?";
+            game1[1].Options = @"
+a) Irlande
+b) Wales
+c) États-Unis
+d) Écosse
+";
+            game1[1].Answer = 'd';
+
+            game1[2].Question = "3. Aux États-Unis, comment s'adresse-t-on formellement à un juge?";
+            game1[2].Options = @"
+a) Your holiness
+b) Your honor
+c) Your eminence
+d) Sir/Ma'am
+";
+            game1[2].Answer = 'b';
+
+            game1[3].Question = "2. Quel est l'origine du whisky Scotch?";
+            game1[3].Options = @"
+a) Irlande
+b) Wales
+c) États-Unis
+d) Écosse
+";
+            game1[3].Answer = 'd';
         }
 
         static void Game2()

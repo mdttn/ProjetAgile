@@ -199,15 +199,15 @@ namespace ProjetAgile.user
                 "(c) aucune de ces réponses";
             game2[9].Answer = 'a';
         }
-        static void Game2()
+        static void Game3()
         {  //definition d'un objet de Game1
             //Game1:Animaux obj1, obj2, obj3;
             game3[0].Question = "Quelle est le nom de l'animal qui peut rivaliser avec le lion?";
-            game3[0].Options = "Entrez 1 pour Gazelle\n" +
-                "Entrez 2 pour Hipopotame \n" +
-                "Entrez 3 pour Guêpar";
+            game3[0].Options = " (a) Gazelle\n" +
+                "(b) Hipopotame \n" +
+                "(c) Guêpard";
 
-            game3[0].Answer = '2';              // obj1.affichage();
+            game3[0].Answer = 'b';              // obj1.affichage();
 
             game3[1].Question = "Vrai ou Faux: Une autruche entre sa tête dans le sable?";
             game3[1].Options = "Entrez 1 pour Vrai\n" +
@@ -216,25 +216,25 @@ namespace ProjetAgile.user
             game3[1].Answer = '1';              // obj1.affichage();
 
             game3[2].Question = "Quelles sont les couleurs du perroquet?";
-            game3[2].Options = "Entrez 1 pour Rouge, Mauve et Vert foncé\n" +
-                "Entrez 2 pour Noire,Vert et Rouge\n" +
-                "Entrez 3 pour Aucune reponse";
+            game3[2].Options = " (a) Rouge, Mauve et Vert foncé\n" +
+                " (b) Noire,Vert et Rouge\n" +
+                " (c) Aucune reponse";
 
-            game3[2].Answer = '2';
+            game3[2].Answer = 'b';
 
             game3[3].Question = "Quel est l'animal le plus rapide du monde?";
-            game3[3].Options = "Entrez 1 pour Guépare\n" +
-                "Entrez 2 pour dauphin\n" +
-                "Entrez 3 pour faucon pélerin";
+            game3[3].Options = "(a) Guépard\n" +
+                "(b) dauphin\n" +
+                "(c) faucon pélerin";
 
-            game3[3].Answer = '3';
+            game3[3].Answer = 'c';
 
             game3[4].Question = "Laquel entre ces espèce n'est pas un reptile?";
-            game3[4].Options = "Entrez 1 pour salamandre\n" +
-                "Entrez 2 pour vipère\n" +
-                "Entrez 3 pour caméléon";
+            game3[4].Options = "(a) salamandre\n" +
+                "(b) vipère\n" +
+                "(c) caméléon";
 
-            game3[4].Answer = '1';
+            game3[4].Answer = 'a';
 
 
             game3[5].Question = "Vrai ou Faux? Le Soleil n'est pas affecté par la gravité";
@@ -244,28 +244,28 @@ namespace ProjetAgile.user
             game3[5].Answer = '2';
 
             game3[6].Question = "Quel est la plus grosse planète dans notre système solaire?";
-            game3[6].Options = "Entrez 1 pour Jupiter \n" +
-                "Entrez 2 pour Soleil \n" +
-                "Entrez 3 pour Saturne";
-            game3[6].Answer = '1';
+            game3[6].Options = "(a) Jupiter \n" +
+                "(b) Soleil \n" +
+                "(c) Saturne";
+            game3[6].Answer = 'a';
 
             game3[7].Question = "Quel scientifique américain est considéré comme " +
                 "« l’inventeur » de l’électricité pour son ampoule?";
-            game3[7].Options = "Entrez 1 pour Thomas Edison\n" +
-                "Entrez 2 pour Alessandro Volta \n" +
-                "Entrez 3 pour Bejamin Franklin";
-            game3[7].Answer = '1';
+            game3[7].Options = "(a) Thomas Edison\n" +
+                "(b) Alessandro Volta \n" +
+                "(c) Bejamin Franklin";
+            game3[7].Answer = 'a';
             game3[8].Question = "Lord of the Rings:Quel est le nom du fameux archer elfe?";
-            game3[8].Options = "Entrez 1 pour Leonis\n" +
-                "Entrez 2 pour Agnadir\n" +
-                "Entrez 3 pour Legolas";
-            game3[8].Answer = '3';
+            game3[8].Options = "(a) Leonis\n" +
+                "(b) Agnadir\n" +
+                "(c) Legolas";
+            game3[8].Answer = 'c';
 
             game3[9].Question = "Lord of the Rings: Quel est le nom du premier détenteur du seigneur des anneaux?";
-            game3[9].Options = "Entrez 1 pour Saroman \n" +
-                "Entrez 2 pour Satan \n" +
-                "Entrez 3 pour Sauron";
-            game3[9].Answer = '3';
+            game3[9].Options = "(a) Saroman \n" +
+                "(b) Smiagol \n" +
+                "(c) Sauron";
+            game3[9].Answer = 'c';
         }
     }
 }

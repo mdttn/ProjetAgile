@@ -27,7 +27,7 @@ namespace ProjetAgile.user
                 Console.Clear();
                 // head title
                 Console.WriteLine("BIENVENUE AU JEU ");
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
                 Console.WriteLine("\"Who wants to be a millionaire?\"\n");
                 Console.ResetColor();
 
@@ -45,13 +45,17 @@ namespace ProjetAgile.user
                 {
                     // message de default
                 }
-                Console.WriteLine();
+                Console.Clear();
 
                 switch (option)
                 {
                     case 1:
                         char start = ' ';
-                        
+
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.WriteLine("INSCRIPTION\n");
+                        Console.ResetColor();
+
                         do
                         {
                             Console.Write("Votre prénom: ");
@@ -86,9 +90,18 @@ namespace ProjetAgile.user
                                 Console.ReadLine();
                                 Console.Clear();
 
-                                Console.Write("Voulez-vous commencer maintenant? (y/n) ");
                                 do
                                 {
+                                    Console.Write("Voulez-vous commencer maintenant? (y/n) ");
+                                    try
+                                    {
+                                        start = Convert.ToChar(Console.ReadLine());
+                                    }
+                                    catch (Exception)
+                                    {
+                                        // reset
+                                    }
+
                                     switch (start)
                                     {
                                         case 'y':
@@ -115,6 +128,10 @@ namespace ProjetAgile.user
                         }
                         break;
                     case 2:
+                        Console.ForegroundColor = ConsoleColor.DarkGray;
+                        Console.WriteLine("LEADERBOARD\n");
+                        Console.ResetColor();
+
                         foreach (Player p in playerList)
                         {
                             Console.WriteLine($"{p.GetState()}");

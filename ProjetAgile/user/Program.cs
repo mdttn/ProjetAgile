@@ -109,35 +109,119 @@ namespace ProjetAgile.user
                                     {
                                         case 'y':
                                             {
-
-                                                char ans;
-                                                Game1();
-                                                for (int a = 0; a < game1.Length; a++)
-                                                {
-                                                    Console.WriteLine("\n\n\t" + game1[a].Question);
-                                                    Console.WriteLine("\n" + game1[a].Options);
-                                                err2: Console.Write("\tEntrez votre reponse: ");
+                                                //Games 1-2-3-4 Options of 'y'
+                                                int choose;
+                                                do
+                                                {////Games options
+                                                menu2: Console.WriteLine("[1] Game1 ");
+                                                    Console.WriteLine("[2] Game2 ");
+                                                    Console.WriteLine("[3] Game3 ");
+                                                    Console.WriteLine("[4] Game4 ");
+                                                    ////////////////////
                                                     try
                                                     {
-                                                        ans = Convert.ToChar(Console.ReadLine());
-                                                        if (game1[a].Answer == ans)
-                                                        {
-                                                            counter1++;
-                                                            Console.WriteLine("Bonne réponse");
-                                                        }
-
-                                                        else
-                                                        {
-                                                            Console.WriteLine("Mauvaise réponse");
-                                                        }
+                                                        choose = Convert.ToInt32(Console.ReadLine());
                                                     }
+                                                    catch (Exception ex) { Console.WriteLine(ex.Message); goto menu2; }
+                                                    ///////////////////
+                                                    switch (choose)
+                                                    {
+                                                        case 1:
+                                                            {
+                                                                char ans;
+                                                                Game1();
+                                                                for (int a = 0; a < game1.Length; a++)
+                                                                {
+                                                                    Console.WriteLine("\n\n\t" + game1[a].Question);
+                                                                    Console.WriteLine("\n" + game1[a].Options);
+                                                                err2: Console.Write("\tEntrez votre reponse: ");
+                                                                    try
+                                                                    {
+                                                                        ans = Convert.ToChar(Console.ReadLine());
+                                                                        if (game1[a].Answer == ans)
+                                                                        {
+                                                                            counter1++;
+                                                                            Console.WriteLine("Bonne réponse");
+                                                                        }
 
-                                                    catch (Exception ex) { Console.WriteLine(ex.Message); goto err2; }
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Mauvaise réponse");
+                                                                        }
+                                                                    }
 
-                                                }
-                                            }
-                                            
-                                            break;
+                                                                    catch (Exception ex) { Console.WriteLine(ex.Message); goto err2; }
+
+                                                                }
+
+                                                            }
+                                                            break;
+                                                        case 2:
+                                                            {
+                                                                char ans;
+                                                                Game2();
+                                                                for (int a = 0; a < game2.Length; a++)
+                                                                {
+                                                                    Console.WriteLine("\n\n\t" + game2[a].Question);
+                                                                    Console.WriteLine("\n" + game2[a].Options);
+                                                                err3: Console.Write("\tEntrez votre reponse: ");
+                                                                    try
+                                                                    {
+                                                                        ans = Convert.ToChar(Console.ReadLine());
+                                                                        if (game2[a].Answer == ans)
+                                                                        {
+                                                                            counter1++;
+                                                                            Console.WriteLine("Bonne réponse");
+                                                                        }
+
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Mauvaise réponse");
+                                                                        }
+                                                                    }
+
+                                                                    catch (Exception ex) { Console.WriteLine(ex.Message); goto err3; }
+                                                                }
+                                                            }
+                                                            break;
+
+                                                        case 3:
+                                                            {
+                                                                char ans;
+                                                                Game3();
+                                                                for (int a = 0; a < game3.Length; a++)
+                                                                {
+                                                                    Console.WriteLine("\n\n\t" + game3[a].Question);
+                                                                    Console.WriteLine("\n" + game3[a].Options);
+                                                                err4: Console.Write("\tEntrez votre reponse: ");
+                                                                    try
+                                                                    {
+                                                                        ans = Convert.ToChar(Console.ReadLine());
+                                                                        if (game2[a].Answer == ans)
+                                                                        {
+                                                                            counter1++;
+                                                                            Console.WriteLine("Bonne réponse");
+                                                                        }
+
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Mauvaise réponse");
+                                                                        }
+                                                                    }
+
+                                                                    catch (Exception ex) { Console.WriteLine(ex.Message); goto err4; }
+                                                                }
+                                                            }
+                                                            break;
+                                                        case 4:
+                                                            {
+
+                                                            }
+                                                            break;
+                                                    }
+                                                } while (choose != 0);
+                                            }break;
+
                                         case 'n':
                                             playerList.Remove(player);
                                             i--;

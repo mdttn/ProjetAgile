@@ -97,7 +97,7 @@ namespace ProjetAgile.bus
         public string GetState()
         {
             string state;
-            state = this.firstName + " " + this.lastName + ", " + this.age;
+            state = this.firstName + " " + this.lastName + ", " + this.age+ " ans";
             return state;
         }
     }

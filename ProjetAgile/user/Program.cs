@@ -2,6 +2,7 @@ using ProjetAgile.bus;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Security.Cryptography;
 using System.Threading;
 
 namespace ProjetAgile.user
@@ -11,6 +12,8 @@ namespace ProjetAgile.user
         static Game[] game1 = new Game[10];
         static Game[] game2 = new Game[10];
         static Game[] game3 = new Game[10];
+
+        static byte counter1 = 0;
 
         static void Main(string[] args)
         {
@@ -105,7 +108,35 @@ namespace ProjetAgile.user
                                     switch (start)
                                     {
                                         case 'y':
-                                            Game1();
+                                            {
+
+                                                char ans;
+                                                Game1();
+                                                for (int a = 0; a < game1.Length; a++)
+                                                {
+                                                    Console.WriteLine("\n\n\t" + game1[a].Question);
+                                                    Console.WriteLine("\n" + game1[a].Options);
+                                                err2: Console.Write("\tEntrez votre reponse: ");
+                                                    try
+                                                    {
+                                                        ans = Convert.ToChar(Console.ReadLine());
+                                                        if (game1[a].Answer == ans)
+                                                        {
+                                                            counter1++;
+                                                            Console.WriteLine("Bonne réponse");
+                                                        }
+
+                                                        else
+                                                        {
+                                                            Console.WriteLine("Mauvaise réponse");
+                                                        }
+                                                    }
+
+                                                    catch (Exception ex) { Console.WriteLine(ex.Message); goto err2; }
+
+                                                }
+                                            }
+                                            
                                             break;
                                         case 'n':
                                             playerList.Remove(player);
@@ -251,7 +282,7 @@ d) Le 4e dimanche de juin
 
         static void Game2()
         {
-            game2[0].Question = "Vrai ou Faux:  ";
+            game2[0].Question = "Vrai ou Faux: Le pH de l'ananas est de 3,71  ";
             game2[0].Options = "Entrez 1 pour Vrai\n" + 
                 "Entrez 2 pour Faux\n";
             game2[0].Answer = '1';

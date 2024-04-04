@@ -1,5 +1,6 @@
 using ProjetAgile.bus;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography;
@@ -12,7 +13,6 @@ namespace ProjetAgile.user
         static Game[] game1 = new Game[10];
         static Game[] game2 = new Game[10];
         static Game[] game3 = new Game[10];
-
         static byte counter1 = 0;
 
         static void Main(string[] args)
@@ -108,120 +108,45 @@ namespace ProjetAgile.user
                                     switch (start)
                                     {
                                         case 'y':
+                                            char ans;
+                                            bool wrong = false;
+
+                                            Game1();
+                                            do
                                             {
-                                                //Games 1-2-3-4 Options of 'y'
-                                                int choose;
-                                                do
-                                                {////Games options
-                                                menu2: Console.WriteLine("[1] Game1 ");
-                                                    Console.WriteLine("[2] Game2 ");
-                                                    Console.WriteLine("[3] Game3 ");
-                                                    Console.WriteLine("[4] Game4 ");
-                                                    ////////////////////
+                                                for (int g = 0; g < game1.Length; g++)
+                                                {
+                                                    Console.WriteLine(game1[g].Question);
+                                                    Console.WriteLine(game1[g].Options);
+                                                label2:
+                                                    Console.Write("=> ");
                                                     try
                                                     {
-                                                        choose = Convert.ToInt32(Console.ReadLine());
+                                                        ans = Convert.ToChar(Console.ReadLine());
+                                                        if (game1[g].Answer == ans)
+                                                        {
+                                                            player.Money += 10 * (g + 1);
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.WriteLine("\nBonne réponse.\n");
+                                                            Console.ResetColor();
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Red;
+                                                            Console.WriteLine("\nMauvaise réponse.\n");
+                                                            Console.ResetColor();
+                                                            wrong = true;
+                                                            Console.WriteLine(player.GetState());
+                                                        }
                                                     }
-                                                    catch (Exception ex) { Console.WriteLine(ex.Message); goto menu2; }
-                                                    ///////////////////
-                                                    switch (choose)
+                                                    catch (Exception)
                                                     {
-                                                        case 1:
-                                                            {
-                                                                char ans;
-                                                                Game1();
-                                                                for (int a = 0; a < game1.Length; a++)
-                                                                {
-                                                                    Console.WriteLine("\n\n\t" + game1[a].Question);
-                                                                    Console.WriteLine("\n" + game1[a].Options);
-                                                                err2: Console.Write("\tEntrez votre reponse: ");
-                                                                    try
-                                                                    {
-                                                                        ans = Convert.ToChar(Console.ReadLine());
-                                                                        if (game1[a].Answer == ans)
-                                                                        {
-                                                                            counter1++;
-                                                                            Console.WriteLine("Bonne réponse");
-                                                                        }
-
-                                                                        else
-                                                                        {
-                                                                            Console.WriteLine("Mauvaise réponse");
-                                                                        }
-                                                                    }
-
-                                                                    catch (Exception ex) { Console.WriteLine(ex.Message); goto err2; }
-
-                                                                }
-
-                                                            }
-                                                            break;
-                                                        case 2:
-                                                            {
-                                                                char ans;
-                                                                Game2();
-                                                                for (int a = 0; a < game2.Length; a++)
-                                                                {
-                                                                    Console.WriteLine("\n\n\t" + game2[a].Question);
-                                                                    Console.WriteLine("\n" + game2[a].Options);
-                                                                err3: Console.Write("\tEntrez votre reponse: ");
-                                                                    try
-                                                                    {
-                                                                        ans = Convert.ToChar(Console.ReadLine());
-                                                                        if (game2[a].Answer == ans)
-                                                                        {
-                                                                            counter1++;
-                                                                            Console.WriteLine("Bonne réponse");
-                                                                        }
-
-                                                                        else
-                                                                        {
-                                                                            Console.WriteLine("Mauvaise réponse");
-                                                                        }
-                                                                    }
-
-                                                                    catch (Exception ex) { Console.WriteLine(ex.Message); goto err3; }
-                                                                }
-                                                            }
-                                                            break;
-
-                                                        case 3:
-                                                            {
-                                                                char ans;
-                                                                Game3();
-                                                                for (int a = 0; a < game3.Length; a++)
-                                                                {
-                                                                    Console.WriteLine("\n\n\t" + game3[a].Question);
-                                                                    Console.WriteLine("\n" + game3[a].Options);
-                                                                err4: Console.Write("\tEntrez votre reponse: ");
-                                                                    try
-                                                                    {
-                                                                        ans = Convert.ToChar(Console.ReadLine());
-                                                                        if (game2[a].Answer == ans)
-                                                                        {
-                                                                            counter1++;
-                                                                            Console.WriteLine("Bonne réponse");
-                                                                        }
-
-                                                                        else
-                                                                        {
-                                                                            Console.WriteLine("Mauvaise réponse");
-                                                                        }
-                                                                    }
-
-                                                                    catch (Exception ex) { Console.WriteLine(ex.Message); goto err4; }
-                                                                }
-                                                            }
-                                                            break;
-                                                        case 4:
-                                                            {
-
-                                                            }
-                                                            break;
+                                                        goto label2;
                                                     }
-                                                } while (choose != 0);
-                                            }break;
-
+                                                }
+                                            }
+                                            while (!wrong);
+                                            break;
                                         case 'n':
                                             playerList.Remove(player);
                                             i--;
@@ -236,9 +161,6 @@ namespace ProjetAgile.user
                         }
                         catch (Exception)
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("\nÂge invalide.\n");
-                            Console.ResetColor();
                             goto label1;
                         }
                         break;
@@ -246,6 +168,8 @@ namespace ProjetAgile.user
                         Console.ForegroundColor = ConsoleColor.DarkGray;
                         Console.WriteLine("LEADERBOARD\n");
                         Console.ResetColor();
+
+                        playerList.Reverse();
 
                         foreach (Player p in playerList)
                         {
@@ -259,10 +183,7 @@ namespace ProjetAgile.user
                         Console.ResetColor();
                         break;
                     default:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Option invalide.");
-                        Console.ResetColor();
-                        Console.ReadLine();
+                        // reset
                         break;
                 }                
             }
@@ -366,7 +287,7 @@ d) Le 4e dimanche de juin
 
         static void Game2()
         {
-            game2[0].Question = "Vrai ou Faux: Le pH de l'ananas est de 3,71  ";
+            game2[0].Question = "Vrai ou Faux?\nLe pH de l'ananas est de 3,71.";
             game2[0].Options = "Entrez 1 pour Vrai\n" + 
                 "Entrez 2 pour Faux\n";
             game2[0].Answer = '1';

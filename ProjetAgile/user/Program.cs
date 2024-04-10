@@ -20,6 +20,7 @@ namespace ProjetAgile.user
             Player player;
             int i = 0;
             int option;
+            int counter = 0;
 
             do
             {
@@ -67,7 +68,7 @@ namespace ProjetAgile.user
 
                         do
                         {
-                            Console.Write("Votre nom de famille: ");
+                            Console.Write("Votre nom: ");
                             player.LastName = Console.ReadLine();
                         }
                         while (player.LastName == "");
@@ -124,10 +125,16 @@ namespace ProjetAgile.user
                                                         ans = Convert.ToChar(Console.ReadLine());
                                                         if (game1[g].Answer == ans)
                                                         {
+                                                            counter++;
                                                             player.Money += 10 * (g + 1);
                                                             Console.ForegroundColor = ConsoleColor.Green;
                                                             Console.WriteLine("\nBonne réponse.\n");
                                                             Console.ResetColor();
+                                                            Console.WriteLine(player.Money + "\n");
+                                                            if (counter == 10)
+                                                            {
+                                                                wrong = true;
+                                                            }
                                                         }
                                                         else
                                                         {
@@ -135,7 +142,7 @@ namespace ProjetAgile.user
                                                             Console.WriteLine("\nMauvaise réponse.\n");
                                                             Console.ResetColor();
                                                             wrong = true;
-                                                            Console.WriteLine(player.GetState());
+                                                            Console.WriteLine(player.GetResult());
                                                         }
                                                     }
                                                     catch (Exception)
@@ -172,7 +179,7 @@ namespace ProjetAgile.user
 
                         foreach (Player p in playerList)
                         {
-                            Console.WriteLine($"{p.GetState()}");
+                            Console.WriteLine($"{p.GetResult()}");
                         }
                         Console.ReadLine();
                         break;

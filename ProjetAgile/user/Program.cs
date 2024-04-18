@@ -109,8 +109,9 @@ namespace ProjetAgile.user
                                     {
                                         case 'y':
                                             char ans;
-                                            bool wrong = false;
+                                            bool done = false;
 
+                                            Console.Clear();
                                             Game1();
                                             do
                                             {
@@ -133,7 +134,7 @@ namespace ProjetAgile.user
                                                             Console.WriteLine(player.Money + "\n");
                                                             if (counter == 10)
                                                             {
-                                                                wrong = true;
+                                                                done = true;
                                                             }
                                                         }
                                                         else
@@ -141,8 +142,7 @@ namespace ProjetAgile.user
                                                             Console.ForegroundColor = ConsoleColor.Red;
                                                             Console.WriteLine("\nMauvaise réponse.\n");
                                                             Console.ResetColor();
-                                                            wrong = true;
-                                                            Console.WriteLine(player.GetResult());
+                                                            done = true;
                                                         }
                                                     }
                                                     catch (Exception)
@@ -151,7 +151,50 @@ namespace ProjetAgile.user
                                                     }
                                                 }
                                             }
-                                            while (!wrong);
+                                            while (!done);
+
+                                            if (done)
+                                            {
+                                                Console.WriteLine(player.GetResult());
+                                                Console.ReadLine();
+                                                Console.Clear();
+                                                if (counter == 10)
+                                                {
+                                                    char next = ' ';
+
+                                                    do
+                                                    {
+                                                        Console.WriteLine("Voulez-vous passer à la prochaine série de questions? (y/n)");
+                                                        Console.WriteLine("* Si oui, vous pouvez gagner plus d'argent, mais vous risquez aussi de tout perdre.");
+                                                        Console.WriteLine("* Sinon, vous gardez votre montant actuel et vous ne pouvez plus rejouer.");
+                                                        Console.Write("=> ");
+                                                        try
+                                                        {
+                                                            next = Convert.ToChar(Console.ReadLine());
+                                                        }
+                                                        catch (Exception)
+                                                        {
+                                                            // reset
+                                                        }
+
+                                                        switch (next)
+                                                        {
+                                                            case 'y':
+                                                                Console.Clear();
+                                                                Game2();
+                                                                break;
+                                                            case 'n':
+                                                                // leave
+                                                                break;
+                                                            default:
+                                                                // reset
+                                                                break;
+                                                        }
+                                                    }
+                                                    while (next != '\n');
+                                                    
+                                                }
+                                            }
                                             break;
                                         case 'n':
                                             playerList.Remove(player);

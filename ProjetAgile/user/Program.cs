@@ -20,7 +20,7 @@ namespace ProjetAgile.user
             Player player;
             int i = 0;
             int option;
-            int counter = 0;
+            int counter;
 
             do
             {
@@ -113,6 +113,7 @@ namespace ProjetAgile.user
 
                                             Console.Clear();
                                             Game1();
+                                            counter = 0;
                                             do
                                             {
                                                 for (int g = 0; g < game1.Length; g++)
@@ -182,6 +183,7 @@ namespace ProjetAgile.user
                                                             case 'y':
                                                                 Console.Clear();
                                                                 Game2();
+                                                                counter = 0;
                                                                 done = false;
                                                                 do
                                                                 {
@@ -375,7 +377,7 @@ d) Le 4e dimanche de juin
 
         static void Game2()
         {  
-            game2[0].Question = "Quel animal peut rivaliser avec le lion?";
+            game2[0].Question = "1. Quel animal peut rivaliser avec le lion?";
             game2[0].Options = @"
 a) Gazelle
 b) Hippopotame
@@ -385,7 +387,7 @@ d) Léopard
 
             game2[0].Answer = 'b';
 
-            game2[1].Question = "Vrai ou Faux?\n Une autruche peut entrer sa tête dans le sable.";
+            game2[1].Question = "2. Vrai ou Faux?\nUne autruche peut entrer sa tête dans le sable.";
             game2[1].Options = @"
 a) Vrai
 b) Faux
@@ -393,7 +395,7 @@ b) Faux
 
             game2[1].Answer = 'a';
 
-            game2[2].Question = "Quelles sont les couleurs fréquemment retrouvées sur le plumage d'un perroquet?";
+            game2[2].Question = "3. Quelles sont les couleurs fréquemment retrouvées sur le plumage d'un perroquet?";
             game2[2].Options = @"
 a) Rouge, mauve et vert foncé
 b) Bleu, vert et rouge
@@ -402,7 +404,7 @@ d) Turquoise, blanc et rose
 ";
             game2[2].Answer = 'b';
 
-            game2[3].Question = "Quel est l'animal le plus rapide au monde?";
+            game2[3].Question = "4. Quel est l'animal le plus rapide au monde?";
             game2[3].Options = @"
 a) Guépard
 b) Espadon-voilier
@@ -411,7 +413,7 @@ d) Tigre
 ";
             game2[3].Answer = 'c';
 
-            game2[4].Question = "Laquelle de ces espèces n'est pas un reptile?";
+            game2[4].Question = "5. Laquelle de ces espèces n'est pas un reptile?";
             game2[4].Options = @"
 a) Salamandre
 b) Vipère
@@ -421,14 +423,14 @@ d) Tortue
             game2[4].Answer = 'a';
 
 
-            game2[5].Question = "Vrai ou Faux?\nLe Soleil n'est pas affecté par la gravité.";
+            game2[5].Question = "6. Vrai ou Faux?\nLe Soleil n'est pas affecté par la gravité.";
             game2[5].Options = @"
 a) Vrai
 b) Faux
 ";
             game2[5].Answer = 'b';
 
-            game2[6].Question = "Quelle est la plus grosse planète dans notre système solaire?";
+            game2[6].Question = "7. Quelle est la plus grosse planète dans notre système solaire?";
             game2[6].Options = @"
 a) Pluton
 b) Saturne
@@ -437,7 +439,7 @@ d) Jupiter
 ";
             game2[6].Answer = 'd';
 
-            game2[7].Question = "Quel scientifique américain est considéré \"l’inventeur\" de l’électricité pour son ampoule?";
+            game2[7].Question = "8. Quel scientifique américain est considéré \"l’inventeur\" de l’électricité pour son ampoule?";
             game2[7].Options = @"
 a) Alessandro Volta
 b) Thomas Edison
@@ -446,7 +448,7 @@ d) James Watt
 ";
             game2[7].Answer = 'b';
 
-            game2[8].Question = "Comment s'appelle le fameux archer elfe dans \"Lord of the Rings\"?";
+            game2[8].Question = "9. Comment s'appelle le fameux archer elfe dans \"Lord of the Rings\"?";
             game2[8].Options = @"
 a) Leonis
 b) Agnadir
@@ -455,7 +457,7 @@ d) Gandalf
 ";
             game2[8].Answer = 'c';
 
-            game2[9].Question = "Quelle constellation ressemble à une lettre de l'alphabet?";
+            game2[9].Question = "10. Quelle constellation ressemble à une lettre de l'alphabet?";
             game2[9].Options = @"
 a) Andromède
 b) Grande Ourse
@@ -467,7 +469,7 @@ d) Cassiopée
 
         static void Game3()
         {
-            game3[0].Question = "Vrai ou Faux?\nLe pH de l'ananas est de 3,71.";
+            game3[0].Question = "1. Vrai ou Faux?\nLe pH de l'ananas est de 3,71.";
             game3[0].Options = @"
 a) Vrai
 b) Faux
@@ -475,7 +477,7 @@ b) Faux
             game3[0].Answer = 'a';
             
 
-            game3[1].Question = "Combien d'étoiles sont présentes sur le drapeau des États-Unis?";
+            game3[1].Question = "2. Combien d'étoiles sont présentes sur le drapeau des États-Unis?";
             game3[1].Options = @"
 a) 48
 b) 50
@@ -484,7 +486,7 @@ d) 52
 ";
             game3[1].Answer = 'b';
 
-            game3[2].Question = " Quel artiste est considéré comme le roi du genre pop?";
+            game3[2].Question = "3. Quel artiste est considéré comme le roi du genre pop?";
             game3[2].Options = @"
 a) The Weeknd
 b) The Beatles
@@ -493,14 +495,14 @@ d) Michael Jackson
 ";
             game3[2].Answer = 'c';
 
-            game3[3].Question = "Vrai ou Faux?\nJerry West est le joueur présent sur le logo de la NBA.";
+            game3[3].Question = "4. Vrai ou Faux?\nJerry West est le joueur présent sur le logo de la NBA.";
             game3[3].Options = @"
 a) Vrai
 b) Faux
 ";
             game3[3].Answer = 'a';
 
-            game3[4].Question = "Quel est la formule brut du glucose (sucre)?";
+            game3[4].Question = "5. Quel est la formule brut du glucose (sucre)?";
             game3[4].Options = @"
 a) C6H12O6
 b) C2H6O
@@ -509,14 +511,14 @@ d) C2H4O2
 ";
             game3[4].Answer = 'a';
 
-            game3[5].Question = "Vrai ou Faux?\nLe crâne est l'os le plus résistant du corps humain.";
+            game3[5].Question = "6. Vrai ou Faux?\nLe crâne est l'os le plus résistant du corps humain.";
             game3[5].Options = @"
 a) Vrai
 b) Faux
 ";
             game3[5].Answer = 'b';
 
-            game3[6].Question = "Quel pays ne fait pas parti de l'OTAN?";
+            game3[6].Question = "7. Quel pays ne fait pas parti de l'OTAN?";
             game3[6].Options = @"
 a) Slovaquie
 b) Slovénie
@@ -525,7 +527,7 @@ d) Estonie
 ";
             game3[6].Answer = 'c';
 
-            game3[7].Question = "Quelle ville est considérée comme sainte pour les trois principales religions abrahamiques?";
+            game3[7].Question = "8. Quelle ville est considérée comme sainte pour les trois principales religions abrahamiques?";
             game3[7].Options = @"
 a) Nador
 b) Jérusalem
@@ -534,7 +536,7 @@ d) Tibériade
 ";
             game3[7].Answer = 'b';
 
-            game3[8].Question = "Dans la mythologie grecque, quel divinité est considéréé comme le dieu/la déesse de la guerre ?";
+            game3[8].Question = "9. Dans la mythologie grecque, quel divinité est considéréé comme le dieu/la déesse de la guerre ?";
             game3[8].Options = @"
 a) Hadès
 b) Arès
@@ -543,7 +545,7 @@ d) Artémis
 ";
             game3[8].Answer = 'b';
 
-            game3[9].Question = "Combien de championnats Michael Jordan a-t-il gagnés dans sa carrière dans la NBA?";
+            game3[9].Question = "10. Combien de championnats Michael Jordan a-t-il gagnés dans sa carrière dans la NBA?";
             game3[9].Options = @"
 a) 6
 b) 7

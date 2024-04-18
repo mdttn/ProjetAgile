@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Security.Cryptography;
 using System.Threading;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProjetAgile.user
 {
@@ -21,10 +22,10 @@ namespace ProjetAgile.user
             int i = 0;
             int option;
             int counter;
+            bool done = false;
 
             do
-            {
-                player = new Player();
+            {                
                 option = 0;
 
                 Console.Clear();
@@ -54,6 +55,7 @@ namespace ProjetAgile.user
                 {
                     case 1:
                         char start = ' ';
+                        player = new Player();
 
                         Console.ForegroundColor = ConsoleColor.DarkGray;
                         Console.WriteLine("INSCRIPTION\n");
@@ -88,7 +90,6 @@ namespace ProjetAgile.user
                             else
                             {
                                 i++;
-                                playerList.Add(player);
                                 Console.WriteLine($"\nJoueur {i}: {player.GetState()}");
                                 Console.ReadLine();
                                 Console.Clear();
@@ -109,50 +110,132 @@ namespace ProjetAgile.user
                                     {
                                         case 'y':
                                             char ans;
-                                            bool done = false;
+                                            counter = 0;
 
                                             Console.Clear();
+                                            playerList.Add(player);
                                             Game1();
-                                            counter = 0;
-                                            do
+                                            for (int g = 0; g < game1.Length; g++)
                                             {
-                                                for (int g = 0; g < game1.Length; g++)
+                                            label2:
+                                                Console.Clear();
+                                                Console.WriteLine(game1[g].Question);
+                                                Console.WriteLine(game1[g].Options);
+                                                Console.Write("=> ");
+                                                try
                                                 {
-                                                    Console.WriteLine(game1[g].Question);
-                                                    Console.WriteLine(game1[g].Options);
-                                                label2:
-                                                    Console.Write("=> ");
-                                                    try
+                                                    ans = Convert.ToChar(Console.ReadLine());
+                                                    if (game1[g].Answer == ans)
                                                     {
-                                                        ans = Convert.ToChar(Console.ReadLine());
-                                                        if (game1[g].Answer == ans)
+                                                        counter++;
+                                                        player.Money += 10 * (g + 1);
+                                                        Console.ForegroundColor = ConsoleColor.Green;
+                                                        Console.WriteLine("\nBonne réponse.\n");
+                                                        Console.ResetColor();
+                                                        Console.WriteLine(player.Money + "\n");
+
+                                                        if (counter == 10)
                                                         {
-                                                            counter++;
-                                                            player.Money += 10 * (g + 1);
-                                                            Console.ForegroundColor = ConsoleColor.Green;
-                                                            Console.WriteLine("\nBonne réponse.\n");
-                                                            Console.ResetColor();
-                                                            Console.WriteLine(player.Money + "\n");
-                                                            if (counter == 10)
+                                                            char next = ' ';
+
+                                                            Console.WriteLine(player.GetResult());
+                                                            Console.ReadLine();
+
+                                                            do
                                                             {
-                                                                done = true;
+                                                                Console.Clear();
+                                                                Console.WriteLine("Voulez-vous passer à la prochaine série de questions? (y/n)");
+                                                                Console.WriteLine("* Si oui, vous pouvez gagner plus d'argent, mais vous risquez aussi de tout perdre.");
+                                                                Console.WriteLine("* Sinon, vous gardez votre montant actuel et vous ne pouvez plus rejouer.");
+                                                                Console.Write("=> ");
+                                                                try
+                                                                {
+                                                                    next = Convert.ToChar(Console.ReadLine());
+                                                                }
+                                                                catch (Exception)
+                                                                {
+                                                                    // reset
+                                                                }
+
+                                                                switch (next)
+                                                                {
+                                                                    case 'y':
+                                                                        Console.Clear();
+                                                                        Game2();
+                                                                        counter = 0;
+                                                                        done = false;
+                                                                        do
+                                                                        {
+                                                                            for (int j = 0; j < game2.Length; j++)
+                                                                            {
+                                                                                Console.WriteLine(game2[j].Question);
+                                                                                Console.WriteLine(game2[j].Options);
+                                                                            label3:
+                                                                                Console.Write("=> ");
+                                                                                try
+                                                                                {
+                                                                                    ans = Convert.ToChar(Console.ReadLine());
+                                                                                    if (game2[j].Answer == ans)
+                                                                                    {
+                                                                                        counter++;
+                                                                                        player.Money += 10 * (j + 1);
+                                                                                        Console.ForegroundColor = ConsoleColor.Green;
+                                                                                        Console.WriteLine("\nBonne réponse.\n");
+                                                                                        Console.ResetColor();
+                                                                                        Console.WriteLine(player.Money + "\n");
+                                                                                        if (counter == 10)
+                                                                                        {
+                                                                                            done = true;
+                                                                                        }
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        Console.ForegroundColor = ConsoleColor.Red;
+                                                                                        Console.WriteLine("\nMauvaise réponse.\n");
+                                                                                        Console.ResetColor();
+                                                                                        done = true;
+                                                                                    }
+                                                                                }
+                                                                                catch (Exception)
+                                                                                {
+                                                                                    goto label3;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        while (!done);
+                                                                        break;
+                                                                    case 'n':
+                                                                        // leave
+                                                                        break;
+                                                                    default:
+                                                                        // reset
+                                                                        break;
+                                                                }
                                                             }
-                                                        }
-                                                        else
-                                                        {
-                                                            Console.ForegroundColor = ConsoleColor.Red;
-                                                            Console.WriteLine("\nMauvaise réponse.\n");
-                                                            Console.ResetColor();
-                                                            done = true;
+                                                            while (next != 'n');
                                                         }
                                                     }
-                                                    catch (Exception)
+                                                    else
                                                     {
-                                                        goto label2;
+                                                        Console.ForegroundColor = ConsoleColor.Red;
+                                                        Console.WriteLine("\nMauvaise réponse.\n");
+                                                        Console.ResetColor();
+                                                        done = true;
+
+                                                        if (done)
+                                                        {
+                                                            Console.WriteLine(player.GetResult());
+                                                            Console.ReadLine();
+                                                            Console.Clear();
+                                                            goto case 'n';
+                                                        }
                                                     }
                                                 }
+                                                catch (Exception)
+                                                {
+                                                    goto label2;
+                                                }
                                             }
-                                            while (!done);
 
                                             if (done)
                                             {
@@ -238,7 +321,6 @@ namespace ProjetAgile.user
                                             }
                                             break;
                                         case 'n':
-                                            playerList.Remove(player);
                                             i--;
                                             break;
                                         default:

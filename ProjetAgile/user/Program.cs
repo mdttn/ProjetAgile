@@ -182,6 +182,46 @@ namespace ProjetAgile.user
                                                             case 'y':
                                                                 Console.Clear();
                                                                 Game2();
+                                                                done = false;
+                                                                do
+                                                                {
+                                                                    for (int g = 0; g < game2.Length; g++)
+                                                                    {
+                                                                        Console.WriteLine(game2[g].Question);
+                                                                        Console.WriteLine(game2[g].Options);
+                                                                    label3:
+                                                                        Console.Write("=> ");
+                                                                        try
+                                                                        {
+                                                                            ans = Convert.ToChar(Console.ReadLine());
+                                                                            if (game2[g].Answer == ans)
+                                                                            {
+                                                                                counter++;
+                                                                                player.Money += 10 * (g + 1);
+                                                                                Console.ForegroundColor = ConsoleColor.Green;
+                                                                                Console.WriteLine("\nBonne réponse.\n");
+                                                                                Console.ResetColor();
+                                                                                Console.WriteLine(player.Money + "\n");
+                                                                                if (counter == 10)
+                                                                                {
+                                                                                    done = true;
+                                                                                }
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                                                Console.WriteLine("\nMauvaise réponse.\n");
+                                                                                Console.ResetColor();
+                                                                                done = true;
+                                                                            }
+                                                                        }
+                                                                        catch (Exception)
+                                                                        {
+                                                                            goto label3;
+                                                                        }
+                                                                    }
+                                                                }
+                                                                while (!done);
                                                                 break;
                                                             case 'n':
                                                                 // leave
@@ -191,8 +231,7 @@ namespace ProjetAgile.user
                                                                 break;
                                                         }
                                                     }
-                                                    while (next != '\n');
-                                                    
+                                                    while (next != 'n');                                                    
                                                 }
                                             }
                                             break;

@@ -21,8 +21,8 @@ namespace ProjetAgile.user
             Player player;
             int i = 0;
             int option;
-            int counter;
-            bool done = false;
+            int counter1 = 0, counter2 = 0;
+            bool done;
 
             do
             {                
@@ -96,6 +96,7 @@ namespace ProjetAgile.user
 
                                 do
                                 {
+                                    Console.WriteLine("* Dès que vous donnez une mauvaise réponse, vous ne pourrez plus continuer. *");
                                     Console.Write("Voulez-vous commencer maintenant? (y/n) ");
                                     try
                                     {
@@ -110,10 +111,10 @@ namespace ProjetAgile.user
                                     {
                                         case 'y':
                                             char ans;
-                                            counter = 0;
+                                            done = false;
 
-                                            Console.Clear();
                                             playerList.Add(player);
+                                            // Game 1
                                             Game1();
                                             for (int g = 0; g < game1.Length; g++)
                                             {
@@ -127,108 +128,22 @@ namespace ProjetAgile.user
                                                     ans = Convert.ToChar(Console.ReadLine());
                                                     if (game1[g].Answer == ans)
                                                     {
-                                                        counter++;
+                                                        counter1++;
                                                         player.Money += 10 * (g + 1);
                                                         Console.ForegroundColor = ConsoleColor.Green;
                                                         Console.WriteLine("\nBonne réponse.\n");
                                                         Console.ResetColor();
                                                         Console.WriteLine(player.Money + "\n");
-
-                                                        if (counter == 10)
-                                                        {
-                                                            char next = ' ';
-
-                                                            Console.WriteLine(player.GetResult());
-                                                            Console.ReadLine();
-
-                                                            do
-                                                            {
-                                                                Console.Clear();
-                                                                Console.WriteLine("Voulez-vous passer à la prochaine série de questions? (y/n)");
-                                                                Console.WriteLine("* Si oui, vous pouvez gagner plus d'argent, mais vous risquez aussi de tout perdre.");
-                                                                Console.WriteLine("* Sinon, vous gardez votre montant actuel et vous ne pouvez plus rejouer.");
-                                                                Console.Write("=> ");
-                                                                try
-                                                                {
-                                                                    next = Convert.ToChar(Console.ReadLine());
-                                                                }
-                                                                catch (Exception)
-                                                                {
-                                                                    // reset
-                                                                }
-
-                                                                switch (next)
-                                                                {
-                                                                    case 'y':
-                                                                        Console.Clear();
-                                                                        Game2();
-                                                                        counter = 0;
-                                                                        done = false;
-                                                                        do
-                                                                        {
-                                                                            for (int j = 0; j < game2.Length; j++)
-                                                                            {
-                                                                                Console.WriteLine(game2[j].Question);
-                                                                                Console.WriteLine(game2[j].Options);
-                                                                            label3:
-                                                                                Console.Write("=> ");
-                                                                                try
-                                                                                {
-                                                                                    ans = Convert.ToChar(Console.ReadLine());
-                                                                                    if (game2[j].Answer == ans)
-                                                                                    {
-                                                                                        counter++;
-                                                                                        player.Money += 10 * (j + 1);
-                                                                                        Console.ForegroundColor = ConsoleColor.Green;
-                                                                                        Console.WriteLine("\nBonne réponse.\n");
-                                                                                        Console.ResetColor();
-                                                                                        Console.WriteLine(player.Money + "\n");
-                                                                                        if (counter == 10)
-                                                                                        {
-                                                                                            done = true;
-                                                                                        }
-                                                                                    }
-                                                                                    else
-                                                                                    {
-                                                                                        Console.ForegroundColor = ConsoleColor.Red;
-                                                                                        Console.WriteLine("\nMauvaise réponse.\n");
-                                                                                        Console.ResetColor();
-                                                                                        done = true;
-                                                                                    }
-                                                                                }
-                                                                                catch (Exception)
-                                                                                {
-                                                                                    goto label3;
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                        while (!done);
-                                                                        break;
-                                                                    case 'n':
-                                                                        // leave
-                                                                        break;
-                                                                    default:
-                                                                        // reset
-                                                                        break;
-                                                                }
-                                                            }
-                                                            while (next != 'n');
-                                                        }
+                                                        Console.ReadLine();
                                                     }
                                                     else
                                                     {
                                                         Console.ForegroundColor = ConsoleColor.Red;
                                                         Console.WriteLine("\nMauvaise réponse.\n");
                                                         Console.ResetColor();
+                                                        Console.ReadLine();
                                                         done = true;
-
-                                                        if (done)
-                                                        {
-                                                            Console.WriteLine(player.GetResult());
-                                                            Console.ReadLine();
-                                                            Console.Clear();
-                                                            goto case 'n';
-                                                        }
+                                                        break;                                                        
                                                     }
                                                 }
                                                 catch (Exception)
@@ -236,88 +151,102 @@ namespace ProjetAgile.user
                                                     goto label2;
                                                 }
                                             }
+                                            // Game 2
+                                            if (counter1 == 10)
+                                            {
+                                                Console.Clear();
+                                                Console.WriteLine("Prochaine ronde de questions!");
+                                                Console.ReadLine();
 
+                                                Game2();
+                                                for (int g = 0; g < game2.Length; g++)
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine(game2[g].Question);
+                                                    Console.WriteLine(game2[g].Options);
+                                                label3:
+                                                    Console.Write("=> ");
+                                                    try
+                                                    {
+                                                        ans = Convert.ToChar(Console.ReadLine());
+                                                        if (game2[g].Answer == ans)
+                                                        {
+                                                            counter2++;
+                                                            player.Money += 20 * (g + 1);
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.WriteLine("\nBonne réponse.\n");
+                                                            Console.ResetColor();
+                                                            Console.WriteLine(player.Money + "\n");
+                                                            Console.ReadLine();
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Red;
+                                                            Console.WriteLine("\nMauvaise réponse.\n");
+                                                            Console.ResetColor();
+                                                            Console.ReadLine();
+                                                            done = true;
+                                                            break;
+                                                        }
+                                                    }
+                                                    catch (Exception)
+                                                    {
+                                                        goto label3;
+                                                    }
+                                                }
+                                            }
+                                            // Game 3
+                                            if (counter2 == 10)
+                                            {
+                                                Console.Clear();
+                                                Console.WriteLine("Dernière ronde de questions!");
+                                                Console.ReadLine();
+
+                                                Game3();
+                                                for (int g = 0; g < game3.Length; g++)
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine(game3[g].Question);
+                                                    Console.WriteLine(game3[g].Options);
+                                                label4:
+                                                    Console.Write("=> ");
+                                                    try
+                                                    {
+                                                        ans = Convert.ToChar(Console.ReadLine());
+                                                        if (game3[g].Answer == ans)
+                                                        {
+                                                            counter2++;
+                                                            player.Money += 30 * (g + 1);
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.WriteLine("\nBonne réponse.\n");
+                                                            Console.ResetColor();
+                                                            Console.WriteLine(player.Money + "\n");
+                                                            Console.ReadLine();
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Red;
+                                                            Console.WriteLine("\nMauvaise réponse.\n");
+                                                            Console.ResetColor();
+                                                            Console.ReadLine();
+                                                            done = true;
+                                                            break;
+                                                        }
+                                                    }
+                                                    catch (Exception)
+                                                    {
+                                                        goto label4;
+                                                    }
+                                                }
+                                            }
+                                            // mauvaise réponse
                                             if (done)
                                             {
                                                 Console.WriteLine(player.GetResult());
                                                 Console.ReadLine();
                                                 Console.Clear();
-                                                if (counter == 10)
-                                                {
-                                                    char next = ' ';
-
-                                                    do
-                                                    {
-                                                        Console.WriteLine("Voulez-vous passer à la prochaine série de questions? (y/n)");
-                                                        Console.WriteLine("* Si oui, vous pouvez gagner plus d'argent, mais vous risquez aussi de tout perdre.");
-                                                        Console.WriteLine("* Sinon, vous gardez votre montant actuel et vous ne pouvez plus rejouer.");
-                                                        Console.Write("=> ");
-                                                        try
-                                                        {
-                                                            next = Convert.ToChar(Console.ReadLine());
-                                                        }
-                                                        catch (Exception)
-                                                        {
-                                                            // reset
-                                                        }
-
-                                                        switch (next)
-                                                        {
-                                                            case 'y':
-                                                                Console.Clear();
-                                                                Game2();
-                                                                counter = 0;
-                                                                done = false;
-                                                                do
-                                                                {
-                                                                    for (int g = 0; g < game2.Length; g++)
-                                                                    {
-                                                                        Console.WriteLine(game2[g].Question);
-                                                                        Console.WriteLine(game2[g].Options);
-                                                                    label3:
-                                                                        Console.Write("=> ");
-                                                                        try
-                                                                        {
-                                                                            ans = Convert.ToChar(Console.ReadLine());
-                                                                            if (game2[g].Answer == ans)
-                                                                            {
-                                                                                counter++;
-                                                                                player.Money += 10 * (g + 1);
-                                                                                Console.ForegroundColor = ConsoleColor.Green;
-                                                                                Console.WriteLine("\nBonne réponse.\n");
-                                                                                Console.ResetColor();
-                                                                                Console.WriteLine(player.Money + "\n");
-                                                                                if (counter == 10)
-                                                                                {
-                                                                                    done = true;
-                                                                                }
-                                                                            }
-                                                                            else
-                                                                            {
-                                                                                Console.ForegroundColor = ConsoleColor.Red;
-                                                                                Console.WriteLine("\nMauvaise réponse.\n");
-                                                                                Console.ResetColor();
-                                                                                done = true;
-                                                                            }
-                                                                        }
-                                                                        catch (Exception)
-                                                                        {
-                                                                            goto label3;
-                                                                        }
-                                                                    }
-                                                                }
-                                                                while (!done);
-                                                                break;
-                                                            case 'n':
-                                                                // leave
-                                                                break;
-                                                            default:
-                                                                // reset
-                                                                break;
-                                                        }
-                                                    }
-                                                    while (next != 'n');                                                    
-                                                }
+                                                start = ' ';
+                                                goto default;
                                             }
                                             break;
                                         case 'n':
@@ -341,7 +270,7 @@ namespace ProjetAgile.user
                         Console.WriteLine("LEADERBOARD\n");
                         Console.ResetColor();
 
-                        playerList.Reverse();
+                        playerList.Reverse(1, 2);
 
                         foreach (Player p in playerList)
                         {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetAgile.bus
 {
-    internal class Player
+    public class Player
     {
         private string firstName;
         private string lastName;

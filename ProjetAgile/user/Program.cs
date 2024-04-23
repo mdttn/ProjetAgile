@@ -2,7 +2,9 @@ using ProjetAgile.bus;
 using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
+using System.Security.AccessControl;
 using System.Security.Cryptography;
 using System.Threading;
 using static System.Net.Mime.MediaTypeNames;
@@ -19,7 +21,6 @@ namespace ProjetAgile.user
         {
             List<Player> playerList = new List<Player>();
             Player player;
-            int i = 0;
             int option;
             int counter1 = 0, counter2 = 0;
             bool done;
@@ -53,8 +54,7 @@ namespace ProjetAgile.user
 
                 switch (option)
                 {
-                    case 1:
-                        char start = ' ';
+                    case 1:                        
                         player = new Player();
 
                         Console.ForegroundColor = ConsoleColor.DarkGray;
@@ -89,13 +89,13 @@ namespace ProjetAgile.user
                             }
                             else
                             {
-                                i++;
-                                Console.WriteLine($"\nJoueur {i}: {player.GetState()}");
+                                Console.WriteLine($"\nJoueur: {player.GetState()}");
                                 Console.ReadLine();
-                                Console.Clear();
+                                char start = ' ';
 
                                 do
-                                {
+                                {                                    
+                                    Console.Clear();
                                     Console.WriteLine("* Dès que vous donnez une mauvaise réponse, vous ne pourrez plus continuer. *");
                                     Console.Write("Voulez-vous commencer maintenant? (y/n) ");
                                     try
@@ -133,7 +133,7 @@ namespace ProjetAgile.user
                                                         Console.ForegroundColor = ConsoleColor.Green;
                                                         Console.WriteLine("\nBonne réponse.\n");
                                                         Console.ResetColor();
-                                                        Console.WriteLine(player.Money + "\n");
+                                                        Console.WriteLine(player.Money);
                                                         Console.ReadLine();
                                                     }
                                                     else
@@ -176,7 +176,7 @@ namespace ProjetAgile.user
                                                             Console.ForegroundColor = ConsoleColor.Green;
                                                             Console.WriteLine("\nBonne réponse.\n");
                                                             Console.ResetColor();
-                                                            Console.WriteLine(player.Money + "\n");
+                                                            Console.WriteLine(player.Money);
                                                             Console.ReadLine();
                                                         }
                                                         else
@@ -220,8 +220,9 @@ namespace ProjetAgile.user
                                                             Console.ForegroundColor = ConsoleColor.Green;
                                                             Console.WriteLine("\nBonne réponse.\n");
                                                             Console.ResetColor();
-                                                            Console.WriteLine(player.Money + "\n");
+                                                            Console.WriteLine(player.Money);
                                                             Console.ReadLine();
+                                                            done = true;
                                                         }
                                                         else
                                                         {
@@ -239,18 +240,18 @@ namespace ProjetAgile.user
                                                     }
                                                 }
                                             }
-                                            // mauvaise réponse
+                                            // mauvaise réponse ou fini les 30 questions
                                             if (done)
                                             {
                                                 Console.WriteLine(player.GetResult());
                                                 Console.ReadLine();
                                                 Console.Clear();
-                                                start = ' ';
-                                                goto default;
+                                                start = 'n';
+                                                goto case 'n';
                                             }
                                             break;
                                         case 'n':
-                                            i--;
+                                            // restart
                                             break;
                                         default:
                                             // reset
@@ -270,11 +271,11 @@ namespace ProjetAgile.user
                         Console.WriteLine("LEADERBOARD\n");
                         Console.ResetColor();
 
-                        playerList.Reverse(1, 2);
+                        playerList.Sort((right, left) => right.Money.CompareTo(left.Money));
 
                         foreach (Player p in playerList)
                         {
-                            Console.WriteLine($"{p.GetResult()}");
+                            Console.WriteLine(p.GetResult());
                         }
                         Console.ReadLine();
                         break;
@@ -533,10 +534,10 @@ b) Faux
             game3[6].Options = @"
 a) Slovaquie
 b) Slovénie
-c) Vatican
-d) Estonie
+c) Estonie
+d) Vatican
 ";
-            game3[6].Answer = 'c';
+            game3[6].Answer = 'd';
 
             game3[7].Question = "8. Quelle ville est considérée comme sainte pour les trois principales religions abrahamiques?";
             game3[7].Options = @"

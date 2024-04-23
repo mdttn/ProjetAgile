@@ -22,7 +22,7 @@ namespace ProjetAgile.user
             List<Player> playerList = new List<Player>();
             Player player;
             int option;
-            int counter1 = 0, counter2 = 0;
+            int counter1, counter2;
             bool done;
 
             do
@@ -112,6 +112,8 @@ namespace ProjetAgile.user
                                         case 'y':
                                             char ans;
                                             done = false;
+                                            counter1 = 0;
+                                            counter2 = 0;
 
                                             playerList.Add(player);
                                             // Game 1
@@ -271,7 +273,7 @@ namespace ProjetAgile.user
                         Console.WriteLine("LEADERBOARD\n");
                         Console.ResetColor();
 
-                        playerList.Sort((right, left) => right.Money.CompareTo(left.Money));
+                        playerList.Sort((left, right) => right.Money.CompareTo(left.Money));
 
                         foreach (Player p in playerList)
                         {
@@ -281,7 +283,7 @@ namespace ProjetAgile.user
                         break;
                     case 3:
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\nCliquez 2 fois pour quitter.");
+                        Console.WriteLine("Cliquez 2 fois pour quitter.\n");
                         Console.ResetColor();
                         break;
                     default:
